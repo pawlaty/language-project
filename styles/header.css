@@ -1,0 +1,53 @@
+body{
+    --color_font:rgb(145, 123, 184)
+}
+
+.shiningTitle{
+    content:"";
+    position: relative;
+    background:none;
+    overflow: hidden;
+    /*animation: shining 4s ease-out 0s infinite forwards;*/
+}
+
+.shiningTitle::before{
+    /*transform: skewX(-40deg)translate(30px);*/
+    height: 1.5rem;
+    width: 1.5rem;
+    display: block;
+    content:"";
+    position: absolute;
+    /*content:attr(data-content);*/
+    color:var(--color_font);
+    background:rgba(217,210,217,.4);
+    box-shadow:0 0 6px 6px rgba(217,210,217,.4),inset 0 0 7px 5px rgba(217,210,217,.4);
+    /*border-radius: 50%;*/
+    top:12px;
+    left:-70px;
+    animation: shining_back 4s ease-out 0s infinite forwards;
+
+}
+
+@keyframes shining_rotate {
+    0% {transform:skewX(-20deg) translate(0) rotateZ(0deg) scale(0)}
+    2% {transform:skewX(-50deg) translate(40px) rotateZ(20deg) scale(1)}
+    50% {transform:skewX(-20deg) translate(360px) rotateZ(660deg) scale(.7)}
+    55% {transform:skewX(0deg) translate(360px) rotateZ(1360deg) scale(0)}
+    100% {transform:skewX(0deg) translate(360px) rotateZ(1990deg) scale(0)}
+  /*  100% {transform:skewX(-0deg) translate(0)}*/
+}
+
+@keyframes shining_back {
+    0% {transform:skewX(-45deg) translate(0)  scale(0)}
+    2% {transform:skewX(-45deg) translate(40px) scale(1)}
+    50% {transform:skewX(-50deg) translate(550px) scale(1.2)}
+    55% {transform:skewX(45deg) translate(650px)  scale(0)}
+    100% {transform:skewX(0deg) translate(650px)  scale(0)}
+  /*  100% {transform:skewX(-0deg) translate(0)}*/
+}
+
+@keyframes shining {
+    0% {color:rgb(0,0,0);}
+    50% {color:var(--color_font)}
+    100% {color:rgb(0,0,0);}
+}

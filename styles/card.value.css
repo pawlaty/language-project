@@ -1,0 +1,26 @@
+body{
+    --marginX:1rem;
+    --marginY:0rem;
+}
+
+.card-value-parent{
+    width: 100%;
+    height: 100%;
+    position:relative,
+  }
+
+.UpAndDown{
+  position:absolute;
+  font-size: 2em;
+  font-weight: 600;
+}
+
+.TopLeft{
+    top:var(--marginY);
+    left:var(--marginX);
+}
+.BottomRight{
+    bottom: var(--marginY);
+    right:var(--marginX);
+    transform: rotateZ(180deg);
+}

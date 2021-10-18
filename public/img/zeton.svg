@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Warstwa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="160.455px" height="160.909px" viewBox="0 0 160.455 160.909" enable-background="new 0 0 160.455 160.909"
+	 xml:space="preserve">
+<radialGradient id="SVGID_1_" cx="79.8496" cy="80.8486" r="77.7288" gradientUnits="userSpaceOnUse">
+	<stop  offset="0" style="stop-color:#FFFFFF"/>
+	<stop  offset="1" style="stop-color:#000000"/>
+</radialGradient>
+<path fill="url(#SVGID_1_)" stroke="#000000" stroke-miterlimit="10" d="M157.58,80.847c0,42.929-34.799,77.729-77.733,77.729
+	c-42.928,0-77.727-34.801-77.727-77.729c0-42.926,34.799-77.726,77.727-77.726C122.781,3.121,157.58,37.921,157.58,80.847z"/>
+<path fill="none" stroke="#CAE0EB" stroke-width="4" stroke-miterlimit="10" d="M138.035,80.849
+	c0,32.134-26.049,58.183-58.188,58.183c-32.135,0-58.182-26.049-58.182-58.183c0-32.133,26.047-58.182,58.182-58.182
+	C111.986,22.667,138.035,48.716,138.035,80.849z"/>
+<path fill="none" stroke="#000000" stroke-width="6" stroke-miterlimit="10" d="M125.535,80.849
+	c0,25.243-20.451,45.708-45.688,45.708c-25.229,0-45.682-20.465-45.682-45.708s20.453-45.706,45.682-45.706
+	C105.083,35.143,125.535,55.605,125.535,80.849z"/>
+<path fill="#DBDBC1" stroke="#552009" stroke-width="3" stroke-miterlimit="10" d="M116.632,80.849
+	c0,20.658-16.469,37.401-36.786,37.401c-20.316,0-36.779-16.743-36.779-37.401c0-20.657,16.463-37.403,36.779-37.403
+	C100.164,43.445,116.632,60.191,116.632,80.849z"/>
+<polygon fill="#EBF4E5" points="87.718,12.462 80.32,19.854 72.926,12.462 80.32,5.069 "/>
+<polygon fill="#EBF4E5" points="87.718,150.184 80.32,157.576 72.926,150.184 80.32,142.791 "/>
+<rect x="6.232" y="75.621" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 -37.6061 146.1203)" fill="#EBF4E5" width="10.455" height="10.455"/>
+<rect x="143.958" y="75.621" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 197.5062 243.507)" fill="#EBF4E5" width="10.455" height="10.455"/>
+<rect x="25.928" y="26.93" fill="#EBF4E5" width="10.453" height="10.454"/>
+<rect x="123.316" y="124.313" fill="#EBF4E5" width="10.455" height="10.455"/>
+<rect x="25.592" y="123.979" fill="#EBF4E5" width="10.455" height="10.455"/>
+<rect x="122.982" y="26.595" fill="#EBF4E5" width="10.455" height="10.454"/>
+</svg>
