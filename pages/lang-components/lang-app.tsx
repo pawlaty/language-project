@@ -6,9 +6,7 @@ import Table from './Table';
 import Card from './card';
 import { Coin } from './Coin';
 import Header from './Header';
-//import type { AppProps } from 'next/app'
 
-//function LangLayout({ Component, pageProps }: AppProps) {
 class LangApp extends React.Component<{},any>  {
   sDesk: ICard[];
   desk: Desk;
