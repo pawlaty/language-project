@@ -1,14 +1,14 @@
 import { CSSProperties } from "react";
-
+//import Image from "next/image";
 
 export default function  Header(...props:any[]){
     const title = props[0].title;
+    const url ='img/croupier2.png';
     const style:{[key:string]:CSSProperties} = {
         container:{
             padding:"1rem",
             width:"100%",
             height:"auto",
-
             alignItems:"center",
             zIndex:3
         },
@@ -19,12 +19,14 @@ export default function  Header(...props:any[]){
             fontWeight:"bold",
             fontSize:"2rem",
             letterSpacing:"2rem",
-        }
+        },
+
     }
 
     return(
         <div className="flex-center column" style={style.container}>
             <div className="shiningTitle" style={style.h1} data-content={title}>{title}</div>
+            <div className="croupier"></div>
         </div>
     );
 }

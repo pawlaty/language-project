@@ -1,12 +1,13 @@
 import React from "react";
-import Image  from 'next/image';
-import { Coin } from "./Coin";
 import { CSSProperties } from "react";
 import ButtNextRound from "./ButtNextRound";
+import PropTypes from 'prop-types';
+import ListPoints from "./ListPoints";
 
-export default function Table(...props:any[]){
-    const point = props[0].pPoints;
-    const url = "img/zeton.svg";
+function Table({...props}:any){
+    const {pPoints, newRound, newGame} = props;
+    const url_next_round = "img/newround.png";
+    const url_new_game = "img/newgame.png";
     const styll:{[key:string]:CSSProperties}={
         p:{
             width:"max-content",
@@ -18,13 +19,16 @@ export default function Table(...props:any[]){
     return (
         <div className="table flex-center">
              <div className="table_backgroud">
-                {/*
-                 <div className="coin flex-center">
-                 <p style={styll.p}><b>{props[0].pPoints}</b></p>
-                </div>*/}
-                <Coin  pPoints={point} addr={url} wid="4rem"/>
-                <ButtNextRound Top={50} Lft={50} func={props[0].newRound}/>
+                <ListPoints pPoints={pPoints} wid="8rem"/>
+                <ButtNextRound Top={50} Lft={50} func={newRound} background={url_next_round}/>
+                <ButtNextRound Top={150} Lft={50} func={newGame} background={url_new_game}/>
              </div>
         </div>
     );
 }
+Table.propTypes = {
+    pPoints:PropTypes.array,
+    newRound:PropTypes.func,
+    newGame:PropTypes.func,
+};
+export default Table;

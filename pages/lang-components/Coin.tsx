@@ -1,7 +1,7 @@
 import { CSSProperties } from "react";
 import { useState } from "react";
 
-export function Coin({pPoints,addr,wid}:any){
+export default function Coin({pPoints,addr,wid}:any){
 
     const [shadow,setShadow] = useState("rgb(0,0,0)");
     //const [pPoints,addr,wid] = {...props};

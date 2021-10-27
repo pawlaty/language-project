@@ -1,12 +1,12 @@
 import { CSSProperties } from "react";
-import { Coin } from "./Coin";
+import Coin from "./Coin";
 import {useState} from 'react';
 
-export default function  ButtNextRound({Top,Lft,func}:any){
+export default function  ButtNextRound({Top,Lft,func,background}:any){
     const press = 3;
     const [_top,set_Top] = useState(Top);
     const [_lft,set_Lft] = useState(Lft);
-    const url = "img/zeton.svg";
+    const url = background;
     const styl:{[key:string]:CSSProperties}={
         butt:{
             position:"absolute",

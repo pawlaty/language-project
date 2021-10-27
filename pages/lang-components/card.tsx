@@ -1,84 +1,99 @@
-//import Image from 'next/image'
-//import revers1 from "../../public/img/revers1.png";
-import React, { useState, useEffect } from "react";
-//import { ICard } from "./ICard";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import CardValue from './CardValue';
-//import type { AppProps } from 'next/app'
+import PropTypes from 'prop-types';
 
-//function LangLayout({ Component, pageProps }: AppProps) {
-//function Card({nRound,onecard,toggle,delay}:any) {
 
-interface CardItemsProps {
-    nRound:boolean;
-    startRound:any;
-    onecard:any;
-    toggle:any;
-    delay:number;
-};
 
-class Card extends React.Component<CardItemsProps,any>{
+function Card({ ...CardItemsProps}:any){
 
-    constructor(props:CardItemsProps){
-        super(props);
-        this.state = {
-            clickState:false
+    const {nRound, startRound, onecard, toggle, delay, player, openedcards} = CardItemsProps;
+
+    const [clickState,setClickState] = useState(false);
+
+    const  cardToClick = useRef(null);
+
+    /**
+     * zdarzenie klikniecia na karte
+     */
+
+    //const press = useCallback(()=>{
+    const press = () => {
+        if(player === 'player'){
+            setClickState(true);
+            toggle(onecard,clickState);
+            //setClickState(true);
+            //e.target.children[0].className = "nativecard cardfront cardbox-hover pik";
+
+        }
+        else if(openedcards === 2 && player === "croupier"){
+        //else if(openedcards > 1 && openedcards < 2 && player === "croupier"){
+            // toggle(onecard,clickState);
+
+
+            setTimeout(()=>{
+                setClickState(true);
+                toggle(onecard,clickState);
+            },delay*100);
+
+
         }
     }
-    /*
-    const [clickState,setClickState] = useState(false);
-    ///console.log(...props);
-    const press = ()=>{
-       setClickState(true);
-       toggle(onecard,clickState); //add clickState
-      // e.target.children[0].className = "nativecard cardfront cardbox-hover pik";
-    };*/
+   // },[clickState, delay, onecard, player, toggle])
+    ;
 
-    press = ()=>{
-        this.setState({
-            clickState:true,
-        });
-        this.props.toggle(this.props.onecard,this.state.clickState);
-    }
+/*
+    const pressCallBack =  useCallback(()=>{
+        openedcards > 1 && openedcards < 4 && player === "croupier"
+    },[press,openedcards, player]);
+*/
+    /**
+     * zaraz po kliknieciu gdy zmieni sie zminenna newRound
+     */
+    useEffect(
+        ()=>{
+            /**Jezeli nowa runda -- odwroc karty */
+                if(nRound){
+                    toggle(onecard,nRound);
 
+                    setTimeout(()=>{
+                        setClickState(false);
+                        startRound();
+                    },delay*100);
+                }
 
-    componentDidUpdate(prevProps:any, prevState:any){
-        console.log("prev: "+prevProps.nRound);
-            console.log("this: " + this.props.nRound);
-            if(this.props.nRound){
+                if(openedcards > 1 && openedcards < 4 && player === "croupier"){
+                    press();
+                }
+            },[nRound, openedcards]
+    );
 
-                setTimeout(()=>{
-                     this.setState({clickState:false});
-                     this.props.toggle(this.props.onecard,this.props.nRound);
-                     this.props.startRound();
-                     console.log('new round');
-                 },this.props.delay*100);
+    return  (
+           <div ref={cardToClick} className="cardbox"
+                                  onFocus={press.bind(onecard)}
+                                  onClick={press.bind(onecard)}>
 
-             }
-      //  }
-
-
-            console.log(this.props.nRound);
-
-    }
-
-
-
-    render(){
-
-        return  (
-            <div className="cardbox" onClick={this.press.bind(this.props.onecard)}>
-                <div className={this.state.clickState?"cardbox_click card":"card"}>
-                    <div className={`nativecard cardfront ${this.props.onecard.color}`}>
-                        <CardValue valCard={this.props.onecard.name}/>
+                <div className={clickState?"cardbox_click card":"card"}>
+                    <div className={onecard?`nativecard cardfront ${onecard.color}`:"nativecard cardfront"}>
+                        <CardValue valCard={onecard?onecard.name:"JOCKER"}/>
                     </div>
                     <div className="nativecard cardback"></div>
                 </div>
-            </div>);
-    }
-
-
+            </div>
+            );
 }
 
+Card.defaultProps = {
+    openedcards:0,
+}
 
+Card.propTypes = {
+    nRound:PropTypes.bool.isRequired,
+    startRound:PropTypes.func.isRequired,
+    onecard:PropTypes.any,
+    toggle:PropTypes.func.isRequired,
+    delay:PropTypes.number.isRequired,
+    player:PropTypes.string.isRequired,
+    openedcard:PropTypes.number,
+}
 
 export default Card;
